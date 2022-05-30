@@ -1,0 +1,9 @@
+[
+    {"name": "all", "color": null, "text": "Все"},
+    {"name": "created", "color": "#4DB663", "text": "Создана"},
+    {"name": "reportDone", "color": "#4DB663", "text": "Отчет готов"},
+    {"name": "inWork", "color": "#1F9BD0", "text": "В работе"},
+    {"name": "review", "color": "#F4B71A", "text": "На проверке"},
+    {"name": "correction", "color": "#F44F5A", "text": "На корректировке"},
+    {"name": "done", "color": "#7A7A7A", "text": "Выполнено"}
+]

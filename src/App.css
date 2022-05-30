@@ -1,38 +1,482 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: Inter;
+  background: #f4f4f4;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  margin: 0 auto;
+  max-width: 1312px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+li {
+  list-style-type: none;
+}
+
+ul, p {
+  margin-bottom: 0;
+  margin-bottom: 0;
+}
+
+.serviceType {
+  padding: 8px;
+  border: 1px solid #BCBEC0;
   display: flex;
-  flex-direction: column;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.serviceType__item {
+  transition: 0.3s all;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.serviceType__item.active {
+  background: #2b2b2b;
+  color: #fff;
+}
+
+.searchInput .ant-input,
+.searchInput .ant-input::placeholder {
+  height: 72px;
+  color: #7A7A7A;
+  font-size: 16px;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.searchInput {
+  background: #fff;
+  border-radius: 8px;
+}
+
+.searchInput .ant-input {
+  padding: 24px;
+  background: transparent;
+}
+
+.searchInput .ant-input-search-button {
+  background: transparent !important;
+  border: none;
+  box-shadow: none;
+}
+
+.searchInput .ant-input-search-button::after {
+  /* отключение тени при нажатии на кнопку поиска */
+  box-shadow: none !important;
+}
+
+.searchInput .ant-input-group-addon {
+  background: transparent;
+  padding-right: 10px !important;
+}
+
+.serviceType__item+.serviceType__item {
+  margin-left: 8px;
+}
+
+.searchInput .ant-input-search-button {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.statusCircle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.orderStatusTabs .ant-tag {
+  background: #fff;
+  border: 1px solid #EDEDED;
+  padding: 9px 16px;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.orderStatusTabs .ant-tag span {
+  margin-left: 8px;
+  font-size: 16px;
+  color: #2b2b2b;
+}
+
+.orderStatusTabs {
+  display: flex;
+}
+
+.orderStatusTabs .ant-tag.all {
+  background: #000;
+  font-size: 16px;
+  color: #fff;
+}
+
+.sortOrderCount {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sortOrderCount__left__text {
+  display: inline-block;
+  color: #4f4f4f;
+  font-size: 16px;
+}
+
+.sortOrderCount__right__ordersNum {
+  color: #2b2b2b;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.sortOrderCount__left .ant-select {
+  width: 200px;
+}
+
+.sortOrderCount__left .ant-select-selection-item {
+  font-size: 16px;
+  font-weight: 500;
+  color: #2b2b2b;
+}
+
+.myOrderCard {
+  padding: 32px 40px;
+  background: #fff;
+  border-radius: 16px;
+}
+
+.myOrderCard+.myOrderCard {
+  margin-top: 24px;
+}
+
+.myOrderCard__status {
+  display: flex;
+  align-items: center;
+}
+
+.myOrderCard__status__status {
+  padding: 4px 12px;
+  border: 1px solid red;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.myOrderCard__status__notPaid {
+  display: flex;
+  align-items: center;
+  color: #f44f5a;
+  font-weight: 600;
+  margin-left: 24px;
+}
+
+.myOrderCard__status__notPaid span {
+  margin-left: 8px;
+}
+
+.myOrderCard__title {
+  margin-top: 16px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #2b2b2b;
+}
+
+.myOrderCard__footer__option__property {
+  font-weight: 500;
+  color: #7a7a7a;
+}
+
+.myOrderCard__footer__option__value {
+  margin-top: 2px;
+  font-size: 16px;
+  color: #2b2b2b;
+}
+
+.myOrderCard__footer__chatAndMore {
+  display: flex;
+  align-items: center;
+}
+
+.myOrderCard__footer__chatAndMore__chat {
+  position: relative;
+  cursor: pointer;
+  padding: 12px 16px;
+  background: #f4f4f4;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.myOrderCard__footer__chatAndMore__chat__text {
+  margin-left: 4px;
+  font-size: 16px;
+  color: #4f4f4f;
+}
+
+.myOrderCard__footer__chatAndMore__more {
+  cursor: pointer;
+  margin-left: 16px;
+  padding: 12px 24px;
+  border: 2px solid #4DB663;
+  border-radius: 8px;
+  color: #2b2b2b;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.myOrderCard__footer__chatAndMore__chat.active:after {
+  position: absolute;
+  content: "";
+  width: 16px;
+  height: 16px;
+  background: #4DB663;
+  border-radius: 50%;
+  top: -4px;
+  right: -4px;
+  border: 2px solid #fff;
+}
+
+.myOrderCard__footer__chatAndMore__chat.active .myOrderCard__footer__chatAndMore__chat__icon path {
+  fill: #4DB663;
+}
+
+.orderStatusTabs::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+.serviceType::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+@media (max-width: 1920px) {
+  /* 1280 */
+
+  .container {
+    max-width: 1030px;
   }
-  to {
-    transform: rotate(360deg);
+
+}
+
+@media (max-width: 1920px) {
+  /* 1280 */
+
+  .container {
+    max-width: 1030px;
   }
+
+}
+
+@media (max-width: 1280px) {
+  /* 1024 */
+
+  .serviceType__item {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .container {
+    max-width: 1030px;
+  }
+
+  .sortOrderCount__right__ordersNum {
+    font-size: 18px;
+  }
+
+  .myOrderCard {
+    padding: 32px;
+  }
+
+}
+
+@media (max-width: 1024px) {
+  /* 768 */
+
+  .container {
+    max-width: 688px;
+  }
+
+  .serviceType__item {
+    font-size: 16px;
+  }
+
+  .searchInput .ant-input {
+    height: 64px;
+  }
+
+  .myOrderCard__footer__chatAndMore {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .myOrderCard__footer__options__wrapper {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+
+  .myOrderCard__footer__chatAndMore {
+    margin-top: 32px;
+  }
+
+  .myOrderCard__status__status {
+    padding: 2px 8px;
+  }
+
+  .myOrderCard__status__notPaid svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .myOrderCard {
+    padding: 24px 32px;
+  }
+
+  .myOrderCard__footer__chatAndMore__more {
+    padding: 8px 24px;
+  }
+
+  .myOrderCard__footer__chatAndMore__chat {
+    padding: 8px 12px;
+  }
+
+  .myOrderCard__title {
+    margin-top: 12px;
+  }
+
+}
+
+@media (max-width: 768px) {
+  /* 480 */
+
+  .container {
+    max-width: 434px;
+  }
+
+  .orderStatusTabs {
+    width: 100%;
+    overflow-x: hidden;
+    overscroll-behavior: none;
+  }
+
+  .serviceType {
+    width: 100%;
+    overflow-x: hidden;
+    overscroll-behavior: none;
+  }
+
+  .orderStatusTabs .ant-row {
+    flex-flow: row;
+  }
+
+  .sortOrderCount {
+    flex-wrap: wrap;
+  }
+
+  .sortOrderCount__left {
+    order: 1;
+    margin-top: 16px;
+  }
+
+  .sortOrderCount__right {
+    order: 0;
+  }
+
+  .myOrderCard {
+    padding: 24px 24px;
+  }
+
+  .myOrderCard__footer__option+.myOrderCard__footer__option {
+    margin-top: 16px;
+  }
+
+  .myOrderCard__footer {
+    margin-top: 16px;
+  }
+
+  .myOrderCard__footer__option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #EEEEEE;
+    padding-bottom: 4px;
+  }
+
+  .myOrderCard__footer__options__wrapper {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .myOrderCard__footer__chatAndMore__more {
+    width: 100%;
+    text-align: center;
+  }
+
+  .myOrderCard__footer__chatAndMore {
+    margin-top: 24px;
+  }
+
+  .ant-tag.all {
+    margin-left: 16px;
+  }
+
+}
+
+@media (max-width: 480px) {
+  /* 320 */
+
+  .container {
+    max-width: 288px;
+  }
+
+  .serviceType__item {
+    font-size: 14px;
+  }
+
+  .searchInput .ant-input {
+    height: 56px;
+  }
+
+  .searchInput .ant-input,
+  .searchInput .ant-input::placeholder {
+    font-size: 14px;
+  }
+
+  .searchInput .ant-input-search-button svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .sortOrderCount__right__ordersNum {
+    font-size: 16px;
+  }
+
+  .sortOrderCount .ant-select-selection-item {
+    font-size: 14px;
+  }
+
+  .sortOrderCount__left__text {
+    font-size: 14px;
+  }
+
+  .myOrderCard__status__notPaid span {
+    font-size: 12px;
+    margin-left: 4px;
+  }
+
+  .myOrderCard {
+    padding: 16px 24px;
+  }
+
 }
